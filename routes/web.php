@@ -53,3 +53,4 @@ Route::put('admin/update_level/{level}', 'AdminController@level_update');
 Route::get('admin/access_level/{level}', 'AdminController@level_access');
 Route::post('admin/update_access_level/{level}', 'AdminController@level_access_update');
 Route::delete('admin/level_menu/{level}', 'AdminController@level_destroy');
+

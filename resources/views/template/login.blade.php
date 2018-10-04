@@ -68,7 +68,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-success btn-block btn-flat"><i class="fa fa-sign-in"></i> Masuk</button>
+            <button type="submit" class="btn btn-success btn-block btn-flat"> Masuk <i class="fa fa-sign-in"></i></button>
           </div>
           <!-- /.col -->
         </div>
