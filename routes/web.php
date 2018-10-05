@@ -38,12 +38,11 @@ Route::delete('admin/delete_users/{users}', 'AdminController@users_delete');
 Route::get('admin/exporttoexcel_users', 'AdminController@exportToExcelUsers');
 
 Route::get('admin/menu', 'AdminController@menu');
-Route::get('admin/data_menu', 'AdminController@data_menu');
-Route::get('admin/data_menu_parent', 'AdminController@menu_parent');
-Route::get('admin/search_menu', 'AdminController@menu_search');
+Route::get('admin/tambah_menu', 'AdminController@menu_add');
 Route::post('admin/simpan_menu', 'AdminController@menu_store');
-Route::put('admin/update_menu/{menu}', 'AdminController@menu_update');
-Route::delete('admin/destroy_menu/{menu}', 'AdminController@menu_destroy');
+Route::get('admin/ubah_menu/{menu}', 'AdminController@menu_edit');
+Route::patch('admin/update_menu/{menu}', 'AdminController@menu_update');
+Route::delete('admin/hapus_menu/{menu}', 'AdminController@menu_destroy');
 
 Route::get('admin/level', 'AdminController@level');
 Route::get('admin/data_level', 'AdminController@data_level');

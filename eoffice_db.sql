@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2018 at 11:01 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.0.31
+-- Generation Time: Oct 05, 2018 at 02:16 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -120,12 +118,34 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`id`, `nama_menu`, `icon`, `url`, `parent`, `no_urut`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Dashboard', 'fa fa-home', 'admin/dashboard', 0, 1, NULL, NULL, NULL),
-(2, 'User Management', 'fa fa-sitemap', NULL, 0, 1, NULL, NULL, NULL),
-(3, 'Data Master', 'fa fa-database', NULL, 0, 1, NULL, NULL, NULL),
-(4, 'Agenda', 'fa fa-calendar', 'admin/agenda', 0, 1, NULL, NULL, NULL),
-(5, 'Surat Masuk', 'fa fa-clipboard', NULL, 0, 1, NULL, NULL, NULL),
-(6, 'Surat Keluar', 'fa fa-paper-plane-o', NULL, 0, 1, NULL, NULL, NULL),
-(7, 'Laporan', 'fa fa-folder-o', NULL, 0, 1, NULL, NULL, NULL);
+(2, 'Administrasi', 'fa fa-sitemap', NULL, 0, 1, NULL, '2018-10-04 23:04:51', NULL),
+(3, 'Surat Masuk', 'fa fa-clipboard', NULL, 0, 1, NULL, '2018-10-04 23:07:30', NULL),
+(4, 'Surat Keluar', 'fa fa-paper-plane-o', NULL, 0, 1, NULL, '2018-10-04 23:08:15', NULL),
+(5, 'Laporan', 'fa fa-folder-o', NULL, 0, 1, NULL, '2018-10-04 23:08:55', NULL),
+(6, 'Monitoring', 'fa fa-computer', NULL, 0, 1, NULL, '2018-10-04 23:17:42', NULL),
+(7, 'Supporting', 'fa fa-help', NULL, 0, 1, NULL, '2018-10-04 23:18:23', NULL),
+(8, 'Jenis Surat', NULL, 'jenis_surat', 2, NULL, '2018-10-04 23:30:21', '2018-10-04 23:33:29', NULL),
+(9, 'Klasifikasi Surat', NULL, 'klasifikasi_surat', 2, NULL, '2018-10-04 23:32:41', '2018-10-04 23:32:41', NULL),
+(10, 'Sifat Surat', NULL, 'sifat_surat', 2, NULL, '2018-10-04 23:34:55', '2018-10-04 23:34:55', NULL),
+(11, 'Penomoran Surat', NULL, 'penomoran_surat', 2, NULL, '2018-10-04 23:36:57', '2018-10-04 23:54:46', NULL),
+(12, 'User Management', NULL, NULL, 2, NULL, '2018-10-04 23:40:39', '2018-10-04 23:55:29', NULL),
+(13, 'Menu', NULL, 'menu', 12, NULL, '2018-10-04 23:41:18', '2018-10-04 23:56:14', NULL),
+(14, 'Level', NULL, 'level', 12, NULL, '2018-10-04 23:42:21', '2018-10-04 23:56:45', NULL),
+(15, 'Bagian', NULL, 'bagian', 12, NULL, '2018-10-04 23:42:39', '2018-10-04 23:57:15', NULL),
+(16, 'Jabatan', NULL, 'jabatan', 12, NULL, '2018-10-04 23:43:28', '2018-10-04 23:57:46', NULL),
+(17, 'User', NULL, 'user', 12, NULL, '2018-10-04 23:58:13', '2018-10-04 23:58:13', NULL),
+(18, 'Scanning Surat', NULL, 'surat_masuk/scanning', 3, NULL, '2018-10-04 23:59:15', '2018-10-04 23:59:15', NULL),
+(19, 'Agenda Surat', NULL, 'surat_masuk/agenda', 3, NULL, '2018-10-05 00:00:48', '2018-10-05 00:01:56', NULL),
+(20, 'Pendistribusian Surat', NULL, 'surat_masuk/distribusi', 3, NULL, '2018-10-05 00:01:34', '2018-10-05 00:01:34', NULL),
+(21, 'Disposisi Surat', NULL, 'surat_masuk/disposisi', 3, NULL, '2018-10-05 00:02:54', '2018-10-05 00:02:54', NULL),
+(22, 'Memo', NULL, 'surat_masuk/memo', 3, NULL, '2018-10-05 00:03:56', '2018-10-05 00:03:56', NULL),
+(23, 'Tracking Surat', NULL, 'surat_masuk/tracking', 3, NULL, '2018-10-05 00:05:26', '2018-10-05 00:05:26', NULL),
+(24, 'Agenda Surat', NULL, 'surat_keluar/agenda', 4, NULL, '2018-10-05 00:07:47', '2018-10-05 00:07:47', NULL),
+(25, 'Pendistribusian Surat', NULL, 'surat_keluar/distribusi', 4, NULL, '2018-10-05 00:08:25', '2018-10-05 00:08:25', NULL),
+(26, 'Rekapitulasi Surat Masuk', NULL, 'laporan/surat_masuk', 5, NULL, '2018-10-05 00:09:53', '2018-10-05 00:09:53', NULL),
+(27, 'Rekapitulasi Surat Keluar', NULL, 'laporan/surat_keluar', 5, NULL, '2018-10-05 00:10:22', '2018-10-05 00:10:22', NULL),
+(28, 'Email', NULL, 'supporting/email', 7, NULL, '2018-10-05 00:13:22', '2018-10-05 00:13:22', NULL),
+(29, 'Kalender', NULL, 'supporting/kalender', 7, NULL, '2018-10-05 00:14:25', '2018-10-05 00:14:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -255,44 +275,36 @@ ALTER TABLE `users`
 --
 ALTER TABLE `akses`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `bagian`
 --
 ALTER TABLE `bagian`
   MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
   MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
   MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

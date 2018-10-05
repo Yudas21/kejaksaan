@@ -34,12 +34,6 @@ class AdminController extends Controller
         return view('template.profile', compact('profile'));
     }
 
-    public function settings(){
-        $id = session('userid');
-        $settings = User::where('id_user', $id)->get();
-        return view('template.settings', compact('settings'));
-    }
-
     public function profile_update($id, Request $request){
         $this->validate($request, [
             'nama_lengkap' => 'required|string',
@@ -50,7 +44,7 @@ class AdminController extends Controller
             'nama_lengkap' => $request->nama_lengkap,
             'tgl_lahir' => $request->tgl_lahir != '' ? $request->tgl_lahir : '',
             'tempat_lahir' => $request->tempat_lahir != '' ? $request->tempat_lahir : '',
-            'mobile' => $request->mobile != '' ? $request->mobile : '',
+            'handphone' => $request->handphone != '' ? $request->handphone : '',
             'alamat' => $request->alamat != '' ? $request->alamat : '',
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -88,10 +82,10 @@ class AdminController extends Controller
     public function change_photo(Request $request){
         $id = session('userid');
         $this->validate($request, [
-            'foto' => 'required|file|max:2000'
+            'photo' => 'required|file|max:2000'
         ]);
 
-        $uploadedFile = $request->file('foto'); 
+        $uploadedFile = $request->file('photo'); 
         $path = $uploadedFile->store('public/photo');
         $pecah = explode('/', $path);
 
@@ -100,7 +94,7 @@ class AdminController extends Controller
         }
         
         User::where('id_user', $id)->update([
-            'foto' => trim($pecah[2]),
+            'photo' => trim($pecah[2]),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
@@ -108,86 +102,54 @@ class AdminController extends Controller
     }
 
     public function menu(){
-        return view('template.menu');
+        $menu = DB::table('menu as a')->select('a.id','a.nama_menu','a.parent','a.url','a.icon','b.nama_menu as nama_parent')->leftJoin('menu as b', 'b.id','=','a.parent')->get();
+        return view('template.menu', compact('menu'));
     }
 
-    public function data_menu(Request $request)
-    {
-        $menu = DB::table('menu as a')->select('a.id', 'a.name', 'a.url', 'a.parent', 'b.name as parent_name')->leftJoin('menu as b', 'b.id', '=', 'a.parent')->where('a.deleted_at', '=', NULL)->paginate(10);
-        $response = [
-            'pagination' => [
-                'total' => $menu->total(),
-                'per_page' => $menu->perPage(),
-                'current_page' => $menu->currentPage(),
-                'last_page' => $menu->lastPage(),
-                'from' => $menu->firstItem(),
-                'to' => $menu->lastItem()
-            ],
-            'data' => $menu
-        ];
-
-        return response()->json($response);
-    }
-
-    public function menu_parent()
-    {
-        $menu = Menu::select('id', 'name')->get();
-        $response = [
-            'data' => $menu
-        ];
-
-        return response()->json($response);
-    }
-
-    public function menu_search(Request $request)
-    {
-        $menu = DB::table('menu as a')->select('a.id', 'a.name', 'a.url', 'a.parent', 'b.name as parent_name')->leftJoin('menu as b', 'b.id', '=', 'a.parent')->where('a.deleted_at', '=', NULL)->where('a.name', 'like', '%'.$request->q.'%')->paginate(10);
-        $response = [
-            'pagination' => [
-                'total' => $menu->total(),
-                'per_page' => $menu->perPage(),
-                'current_page' => $menu->currentPage(),
-                'last_page' => $menu->lastPage(),
-                'from' => $menu->firstItem(),
-                'to' => $menu->lastItem()
-            ],
-            'data' => $menu
-        ];
-
-        return response()->json($response);
+    public function menu_add(){
+        $menu = Menu::all();
+        return view('template.menu_add', compact('menu'));
     }
 
     public function menu_store(Request $request){
         $this->validate($request, [
-            'name' => 'required|string'
+            'nama_menu' => 'required|string'
         ]);
 
-        $create = Menu::create([
-            'name' => $request->name,
+        Menu::create([
+            'nama_menu' => $request->nama_menu,
+            'icon' => $request->icon,
             'url' => $request->url,
             'parent' => $request->parent
         ]);
         
-        return response()->json($create);
+        return redirect('admin/menu')->with('message', 'Data menu berhasil ditambah');
+    }
+
+    public function menu_edit($id){
+        $data = Menu::where('id',$id)->first();
+        $menu = Menu::all();
+        return view('template.menu_update', compact('data','menu'));
     }
 
     public function menu_update($id, Request $request){
         $this->validate($request, [
-            'name' => 'required|string'
+            'nama_menu' => 'required|string'
         ]);
 
-        $update = Menu::findOrFail($id)->update([
-            'name' => $request->name,
+        Menu::findOrFail($id)->update([
+            'nama_menu' => $request->nama_menu,
+            'icon' => $request->icon,
             'url' => $request->url,
             'parent' => $request->parent
         ]);
 
-        return response()->json($update);
+        return redirect('admin/menu')->with('message', 'Data menu berhasil diubah');
     }
 
     public function menu_destroy($id){
         $delete = Menu::findOrFail($id)->delete();
-        return response()->json($delete);
+        return redirect('admin/menu')->with('message', 'Data menu berhasil dihapus');
     }
 
     public function level(){
