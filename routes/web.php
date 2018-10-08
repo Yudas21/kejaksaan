@@ -68,3 +68,11 @@ Route::get('bagian/ubah/{bagian}', 'BagianController@bagian_edit');
 Route::patch('bagian/update/{bagian}', 'BagianController@bagian_update');
 Route::delete('bagian/hapus/{bagian}', 'BagianController@bagian_destroy');
 
+Route::get('surat_masuk/scanning', 'SuratMasukController@scanning');
+Route::get('surat_masuk/agenda', 'SuratMasukController@agenda');
+Route::get('surat_masuk/disposisi', 'SuratMasukController@disposisi');
+Route::get('surat_keluar/agenda', 'SuratKeluarController@agenda');
+
+Route::get('supporting/email', 'SupportingController@email');
+Route::get('supporting/kalender', 'SupportingController@kalender');
+

@@ -13,16 +13,19 @@
    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">  -->
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
+  <link rel="stylesheet" href="{{ asset('template/plugins/iCheck/flat/blue.css') }}">
  <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('template/plugins/datepicker/datepicker3.css') }}">
   <!-- Theme style -->
+  <!-- fullCalendar 2.2.5-->
+  <link rel="stylesheet" href="{{ asset('template/plugins/fullcalendar/fullcalendar.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('template/plugins/fullcalendar/fullcalendar.print.css') }}" media="print">
   <!-- Select2 -->
   <link rel="stylesheet" href="{{ asset('template/plugins/select2/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('template/plugins/datatables/dataTables.bootstrap4.css') }}">
 
   <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
-
+  <link rel="stylesheet" href="{{ asset('qr_login/option2/css/style.css') }}" type="text/css"/>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   
