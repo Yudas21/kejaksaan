@@ -64,6 +64,7 @@
 @yield('myjsfile')
 <script>
   $(function () {
+    $('.select2').select2();
     $('.bulan').datepicker({
         format: 'yyyy-mm',
         todayHighlight: true,

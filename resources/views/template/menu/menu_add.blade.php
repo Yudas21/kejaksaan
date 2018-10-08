@@ -39,7 +39,7 @@
                     <div class="col-md-10">
                       <input type="text" name="nama_menu" value="{{ old('nama_menu') }}" class="form-control">
                       @if($errors->has('nama_menu'))
-                        <span class="help-block text-danger">$errors->first('nama_menu')</span>
+                        <span class="help-block text-danger">{{ $errors->first('nama_menu') }}</span>
                       @endif
                     </div>
                   </div>
@@ -48,7 +48,7 @@
                     <div class="col-md-10">
                       <input type="text" name="icon" value="{{ old('icon') }}" class="form-control">
                       @if($errors->has('icon'))
-                        <span class="help-block text-danger">$errors->first('icon')</span>
+                        <span class="help-block text-danger">{{ $errors->first('icon') }}</span>
                       @endif
                     </div>
                   </div>
@@ -57,7 +57,7 @@
                     <div class="col-md-10">
                       <input type="text" name="url" value="{{ old('url') }}" class="form-control">
                       @if($errors->has('url'))
-                        <span class="help-block text-danger">$errors->first('url')</span>
+                        <span class="help-block text-danger">{{ $errors->first('url') }}</span>
                       @endif
                     </div>
                   </div>
@@ -71,7 +71,7 @@
                         @endforeach
                       </select>
                       @if($errors->has('parent'))
-                        <span class="help-block text-danger">$errors->first('parent')</span>
+                        <span class="help-block text-danger">{{ $errors->first('parent') }}</span>
                       @endif
                     </div>
                   </div>

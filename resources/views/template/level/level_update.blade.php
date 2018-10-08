@@ -41,7 +41,7 @@
                       <input type="text" name="nama_level" value="{{ $data->nama_level }}" class="form-control">
                       <input type="hidden" name="nama_level_old" value="{{ $data->nama_level }}" class="form-control">
                       @if($errors->has('nama_level'))
-                        <span class="help-block text-danger">$errors->first('nama_level')</span>
+                        <span class="help-block text-danger">{{ $errors->first('nama_level') }}</span>
                       @endif
                     </div>
                   </div>

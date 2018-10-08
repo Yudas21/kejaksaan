@@ -10,7 +10,7 @@
                     <ol class="breadcrumb float-sm-right">
                       <li class="breadcrumb-item"><a href="#">Administrasi</a></li>
                       <li class="breadcrumb-item"><a href="#">User Management</a></li>\
-                      <li class="breadcrumb-item active"><a href="#">Level</a></li>
+                      <li class="breadcrumb-item active"><a href="#">Jabatan</a></li>
                     </ol>
                   </div>
                 </div>
@@ -23,7 +23,7 @@
               <!-- Default box -->
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Form Tambah Level</h3>
+                  <h3 class="card-title">Form Ubah Jabatan</h3>
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                       <i class="fa fa-minus"></i></button>
@@ -32,20 +32,22 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <form action="{{ url('level/simpan') }}" method="post" class="form-horizontal">
+                  <form action="{{ url('jabatan/update/'.$data->id) }}" method="post" class="form-horizontal">
                   {{csrf_field()}}
+                  <input type="hidden" name="_method" value="patch">
                   <div class="form-group">
-                    <label class="col-md-2">Nama Level</label>
+                    <label class="col-md-2">Nama Jabatan</label>
                     <div class="col-md-10">
-                      <input type="text" name="nama_level" value="{{ old('nama_level') }}" class="form-control">
-                      @if($errors->has('nama_level'))
-                        <span class="help-block text-danger">{{ $errors->first('nama_level') }}</span>
+                      <input type="text" name="nama_jabatan" value="{{ $data->nama_jabatan }}" class="form-control">
+                      <input type="hidden" name="nama_jabatan_old" value="{{ $data->nama_jabatan }}" class="form-control">
+                      @if($errors->has('nama_jabatan'))
+                        <span class="help-block text-danger">{{ $errors->first('nama_jabatan') }}</span>
                       @endif
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="submit" name="save" value="Simpan" class="btn btn-success"> &nbsp; 
-                    <a href="{{ url('level') }}" class="btn btn-default">Batal</a>
+                    <input type="submit" name="update" value="Simpan" class="btn btn-success"> &nbsp; 
+                    <a href="{{ url('jabatan') }}" class="btn btn-default">Batal</a>
                   </div>
                   </form>
                   
@@ -57,10 +59,6 @@
           <!-- /.content-wrapper -->
           
           @section('myjsfile')
-            <script type="text/javascript">
-              $(function () {
-                  $('.select2').select2();
-              });
-            </script>
+            
           @endsection
         @stop

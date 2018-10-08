@@ -27,15 +27,14 @@ Route::patch('admin/update_password/{profile}', 'AdminController@password_update
 Route::patch('admin/change_photo', 'AdminController@change_photo');
 
 // CRUD Users
-Route::get('admin/users', 'AdminController@users');
-Route::get('admin/data_users', 'AdminController@data_users');
-Route::get('admin/search_users', 'AdminController@users_search');
-Route::get('admin/add_users', 'AdminController@users_add');
-Route::post('admin/store_users', 'AdminController@users_store');
-Route::put('admin/update_users/{users}', 'AdminController@users_update');
-Route::put('admin/update_password_users/{users}', 'AdminController@users_update_password');
-Route::delete('admin/delete_users/{users}', 'AdminController@users_delete');
-Route::get('admin/exporttoexcel_users', 'AdminController@exportToExcelUsers');
+Route::get('users', 'UserController@index');
+Route::get('users/tambah', 'UserController@users_add');
+Route::post('users/simpan', 'UserController@users_store');
+Route::get('users/ubah/{users}', 'UserController@users_edit');
+Route::patch('users/update/{users}', 'UserController@users_update');
+Route::get('users/ubah_password/{users}', 'UserController@users_edit_password');
+Route::patch('users/update_password/{users}', 'UserController@users_update_password');
+Route::delete('users/hapus/{users}', 'UserController@users_delete');
 
 // CRUD Menu
 Route::get('menu', 'MenuController@index');
@@ -54,4 +53,18 @@ Route::patch('level/update/{level}', 'LevelController@level_update');
 Route::delete('level/hapus/{level}', 'LevelController@level_destroy');
 Route::get('level/access_level/{level}', 'LevelController@level_access');
 Route::post('level/update_access_level/{level}', 'LevelController@level_access_update');
+
+Route::get('jabatan', 'JabatanController@index');
+Route::get('jabatan/tambah', 'JabatanController@jabatan_add');
+Route::post('jabatan/simpan', 'JabatanController@jabatan_store');
+Route::get('jabatan/ubah/{jabatan}', 'JabatanController@jabatan_edit');
+Route::patch('jabatan/update/{jabatan}', 'JabatanController@jabatan_update');
+Route::delete('jabatan/hapus/{jabatan}', 'JabatanController@jabatan_destroy');
+
+Route::get('bagian', 'BagianController@index');
+Route::get('bagian/tambah', 'BagianController@bagian_add');
+Route::post('bagian/simpan', 'BagianController@bagian_store');
+Route::get('bagian/ubah/{bagian}', 'BagianController@bagian_edit');
+Route::patch('bagian/update/{bagian}', 'BagianController@bagian_update');
+Route::delete('bagian/hapus/{bagian}', 'BagianController@bagian_destroy');
 
