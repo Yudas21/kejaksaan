@@ -43,7 +43,7 @@
                       </div>
                     @endif
                     <div class="row">
-                    <a href="{{ url('admin/tambah_menu') }}" class="btn btn-success" style="margin-bottom: 5px;"><i class="fa fa-plus"></i> Menu Baru</a>
+                    <a href="{{ url('menu/tambah') }}" class="btn btn-success" style="margin-bottom: 5px;"><i class="fa fa-plus"></i> Menu Baru</a>
                     <table id="menu" class="table table-striped table-hover table-bordered">
                       <thead>
                           <tr>
@@ -69,8 +69,31 @@
                                   {{ $data->nama_parent }} 
                                 @endif</td>
                             <td>{{ $data->url }}</td>
-                            <td><a href="{{ url('admin/ubah_menu/'.$data->id) }}"><i class="fa fa-pencil"></i></a> &nbsp;&nbsp; <a href="{{ url('admin/hapus_menu/'.$data->id) }}"><i class="fa fa-trash"></i></a></td>
+                            <td style="text-align: center;"><a href="{{ url('menu/ubah/'.$data->id) }}" rel="tooltip" title="Ubah Menu"><i class="fa fa-pencil"></i></a> &nbsp; <a href="#" data-toggle="modal" data-target="#deleteMenu<?=$no?>" rel="tooltip" title="Hapus Menu"><i class="fa fa-trash"></i></a></td>
                           </tr>
+                          <div id="deleteMenu<?=$no?>" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <form action="{{ url('menu/hapus/'.$data->id) }}" method="post">
+                                  {{csrf_field()}}
+                                  <input type="hidden" name="_method" value="delete">
+                                <div class="modal-header">
+                                  <h4 class="modal-title" style="float: left;">Hapus Data Menu</h4>
+                                  <button type="button" class="close" data-dismiss="modal" style="float: right;">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Anda yakin akan menghapus Menu : <strong>{{ $data->nama_menu }}</strong> ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="submit" class="btn btn-danger">Ya</button> &nbsp;
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                </div>
+                                 </form>
+                              </div>
+
+                            </div>
+                          </div>
                           <?php $no++;?>
                         @endforeach
                       </tbody>

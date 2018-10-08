@@ -37,19 +37,21 @@ Route::put('admin/update_password_users/{users}', 'AdminController@users_update_
 Route::delete('admin/delete_users/{users}', 'AdminController@users_delete');
 Route::get('admin/exporttoexcel_users', 'AdminController@exportToExcelUsers');
 
-Route::get('admin/menu', 'AdminController@menu');
-Route::get('admin/tambah_menu', 'AdminController@menu_add');
-Route::post('admin/simpan_menu', 'AdminController@menu_store');
-Route::get('admin/ubah_menu/{menu}', 'AdminController@menu_edit');
-Route::patch('admin/update_menu/{menu}', 'AdminController@menu_update');
-Route::delete('admin/hapus_menu/{menu}', 'AdminController@menu_destroy');
+// CRUD Menu
+Route::get('menu', 'MenuController@index');
+Route::get('menu/tambah', 'MenuController@menu_add');
+Route::post('menu/simpan', 'MenuController@menu_store');
+Route::get('menu/ubah/{menu}', 'MenuController@menu_edit');
+Route::patch('menu/update/{menu}', 'MenuController@menu_update');
+Route::delete('menu/hapus/{menu}', 'MenuController@menu_destroy');
 
-Route::get('admin/level', 'AdminController@level');
-Route::get('admin/data_level', 'AdminController@data_level');
-Route::get('admin/search_level', 'AdminController@level_search');
-Route::post('admin/simpan_level', 'AdminController@level_store');
-Route::put('admin/update_level/{level}', 'AdminController@level_update');
-Route::get('admin/access_level/{level}', 'AdminController@level_access');
-Route::post('admin/update_access_level/{level}', 'AdminController@level_access_update');
-Route::delete('admin/level_menu/{level}', 'AdminController@level_destroy');
+// CRUD Level
+Route::get('level', 'LevelController@index');
+Route::get('level/tambah', 'LevelController@level_add');
+Route::post('level/simpan', 'LevelController@level_store');
+Route::get('level/ubah/{level}', 'LevelController@level_edit');
+Route::patch('level/update/{level}', 'LevelController@level_update');
+Route::delete('level/hapus/{level}', 'LevelController@level_destroy');
+Route::get('level/access_level/{level}', 'LevelController@level_access');
+Route::post('level/update_access_level/{level}', 'LevelController@level_access_update');
 

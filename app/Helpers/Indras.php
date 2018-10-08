@@ -56,6 +56,17 @@ class Indras {
         return $menus;
     }
 
+    public static function get_level_name($id) {
+        $name = '';
+        $menus = Level::select('nama_level')->where('id', $id)->get();
+        if(Level::select('nama_level')->where('id', $id)->count() > 0){
+            foreach ($menus as $value) {
+                $name = $value->nama_level;
+            }
+        }
+        return $name;
+    }
+
     //============== old ============// 
 
      public static function data_user_photo($id_user) {

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Form;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use App\Menu;
 use App\Level;
 use Indras;
 use App\User;
@@ -99,57 +98,6 @@ class AdminController extends Controller
         ]);
 
         return redirect('admin/profile')->with('message', 'Foto berhasil diganti!');
-    }
-
-    public function menu(){
-        $menu = DB::table('menu as a')->select('a.id','a.nama_menu','a.parent','a.url','a.icon','b.nama_menu as nama_parent')->leftJoin('menu as b', 'b.id','=','a.parent')->get();
-        return view('template.menu', compact('menu'));
-    }
-
-    public function menu_add(){
-        $menu = Menu::all();
-        return view('template.menu_add', compact('menu'));
-    }
-
-    public function menu_store(Request $request){
-        $this->validate($request, [
-            'nama_menu' => 'required|string'
-        ]);
-
-        Menu::create([
-            'nama_menu' => $request->nama_menu,
-            'icon' => $request->icon,
-            'url' => $request->url,
-            'parent' => $request->parent
-        ]);
-        
-        return redirect('admin/menu')->with('message', 'Data menu berhasil ditambah');
-    }
-
-    public function menu_edit($id){
-        $data = Menu::where('id',$id)->first();
-        $menu = Menu::all();
-        return view('template.menu_update', compact('data','menu'));
-    }
-
-    public function menu_update($id, Request $request){
-        $this->validate($request, [
-            'nama_menu' => 'required|string'
-        ]);
-
-        Menu::findOrFail($id)->update([
-            'nama_menu' => $request->nama_menu,
-            'icon' => $request->icon,
-            'url' => $request->url,
-            'parent' => $request->parent
-        ]);
-
-        return redirect('admin/menu')->with('message', 'Data menu berhasil diubah');
-    }
-
-    public function menu_destroy($id){
-        $delete = Menu::findOrFail($id)->delete();
-        return redirect('admin/menu')->with('message', 'Data menu berhasil dihapus');
     }
 
     public function level(){
