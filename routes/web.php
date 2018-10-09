@@ -68,6 +68,30 @@ Route::get('bagian/ubah/{bagian}', 'BagianController@bagian_edit');
 Route::patch('bagian/update/{bagian}', 'BagianController@bagian_update');
 Route::delete('bagian/hapus/{bagian}', 'BagianController@bagian_destroy');
 
+// CRUD Jenis Surat
+Route::get('jenis_surat', 'JenisSuratController@index');
+Route::get('jenis_surat/tambah', 'JenisSuratController@jenis_surat_add');
+Route::post('jenis_surat/simpan', 'JenisSuratController@jenis_surat_store');
+Route::get('jenis_surat/ubah/{jenis_surat}', 'JenisSuratController@jenis_surat_edit');
+Route::patch('jenis_surat/update/{jenis_surat}', 'JenisSuratController@jenis_surat_update');
+Route::delete('jenis_surat/hapus/{jenis_surat}', 'JenisSuratController@jenis_surat_destroy');
+
+// CRUD Sifat Surat
+Route::get('sifat_surat', 'SifatSuratController@index');
+Route::get('sifat_surat/tambah', 'SifatSuratController@sifat_surat_add');
+Route::post('sifat_surat/simpan', 'SifatSuratController@sifat_surat_store');
+Route::get('sifat_surat/ubah/{sifat_surat}', 'SifatSuratController@sifat_surat_edit');
+Route::patch('sifat_surat/update/{sifat_surat}', 'SifatSuratController@sifat_surat_update');
+Route::delete('sifat_surat/hapus/{sifat_surat}', 'SifatSuratController@sifat_surat_destroy');
+
+// CRUD Klasifikasi Surat
+Route::get('klasifikasi_surat', 'KlasifikasiSuratController@index');
+Route::get('klasifikasi_surat/tambah', 'KlasifikasiSuratController@klasifikasi_surat_add');
+Route::post('klasifikasi_surat/simpan', 'KlasifikasiSuratController@klasifikasi_surat_store');
+Route::get('klasifikasi_surat/ubah/{klasifikasi_surat}', 'KlasifikasiSuratController@klasifikasi_surat_edit');
+Route::patch('klasifikasi_surat/update/{klasifikasi_surat}', 'KlasifikasiSuratController@klasifikasi_surat_update');
+Route::delete('klasifikasi_surat/hapus/{klasifikasi_surat}', 'KlasifikasiSuratController@klasifikasi_surat_destroy');
+
 Route::get('surat_masuk/scanning', 'SuratMasukController@scanning');
 Route::get('surat_masuk/agenda', 'SuratMasukController@agenda');
 Route::get('surat_masuk/disposisi', 'SuratMasukController@disposisi');

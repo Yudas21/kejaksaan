@@ -13,6 +13,8 @@ return array(
     '2c102faa651ef8ea5874edb585946bce' => $vendorDir . '/swiftmailer/swiftmailer/lib/swift_required.php',
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     '801c31d8ed748cfa537fa45402288c95' => $vendorDir . '/psy/psysh/src/functions.php',
+    '601bf5295f4f86b2c9aa6885006f8ce5' => $vendorDir . '/werneckbh/qr-code/src/helpers/constants.php',
+    '550b6372332081faf3fe4980a1884cf2' => $vendorDir . '/werneckbh/qr-code/src/helpers/functions.php',
     '9ee1a83e3e03a946906205b72f8e232e' => $vendorDir . '/dhtmlx/scheduler-helper/SchedulerHelper.php',
     'f0906e6318348a765ffb6eb24e0d0938' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',

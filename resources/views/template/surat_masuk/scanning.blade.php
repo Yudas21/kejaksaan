@@ -89,6 +89,7 @@
             </section>
           </div>
           @section('myjsfile')
+            <link rel="stylesheet" href="{{ asset('qr_login/option2/css/style.css') }}" type="text/css"/>
             <script type="text/javascript" src="{{ asset('qr_login/option2/js/filereader.js') }}"></script>
             <script type="text/javascript" src="{{ asset('qr_login/option2/js/qrcodelib.js') }}"></script>
             <script type="text/javascript" src="{{ asset('qr_login/option2/js/webcodecamjs.js ') }}"></script>

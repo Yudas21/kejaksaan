@@ -46,7 +46,7 @@
                               <tr>
                                 <th style="text-align: center;width: 50px;">No.</th>
                                 <th style="text-align: center;">Nama Bagian</th>
-                                <th style="text-align: center;" width="100px">Kelola</th>
+                                <th style="text-align: center;" width="50px">Kelola</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -56,7 +56,7 @@
                                   <td>{{ $no }}.</td>
                                   <td>{{ $value->nama_bagian }}</td>
                                   <td style="text-align: center;">  
-                                      <a href="{{ url('bagian/ubah/'.$value->id) }}" title="Update Bagian" rel="tooltip"><i class="fa fa-pencil"></i></a> &nbsp; 
+                                      <a href="{{ url('bagian/ubah/'.$value->id) }}" title="Update Bagian" rel="tooltip"><i class="fa fa-pencil"></i></a> &nbsp;
                                       <a href="#" title="Hapus Bagian" rel="tooltip" data-toggle="modal" data-target="#delete-bagian{{ $no }}"><i class="fa fa-trash"></i></a>
                                   </td>
                               </tr>
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <form method="post" action="{{ url('bagian/hapus/'.$value->id) }}" class="form-horizontal">
-                                        {{csrf_field()}}
+                                        {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="DELETE">
                                         Anda Yakin akan meghapus data : <strong>{{ $value->nama_bagian }}</strong> ?
 
@@ -79,10 +79,9 @@
                                           <div align="right">
                                               <button type="submit" class="btn btn-danger">Ya</button>
                                               <button class="btn btn-default" data-dismiss="modal">Tidak</button>  
-                                            </div>
+                                          </div>
                                         </div>
-
-                                        </form>
+                                      </form>
                                     </div>
                                   </div>
                                 </div>
@@ -91,7 +90,6 @@
                               @endforeach
                             </tbody>
                           </table>
-                          
                 </div>
               </div>
             </section>

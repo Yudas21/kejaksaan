@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="{{ asset('template/plugins/datatables/dataTables.bootstrap4.css') }}">
 
   <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('qr_login/option2/css/style.css') }}" type="text/css"/>
+  
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   
